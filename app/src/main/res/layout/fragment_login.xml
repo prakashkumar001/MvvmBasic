@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.mvvm.basic.viewmodel.LoginViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="100dp"
+            android:hint="@{loginViewModel.hintEmail}"
+            android:layout_height="wrap_content"
+            android:text="@={loginViewModel.txtEmailId}"
+            />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="@{loginViewModel.hintPassword}"
+            android:text="@={loginViewModel.txtPassword}"
+            />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->loginViewModel.onSubmitLogin()}"
+            bind:toastMessage="@{loginViewModel.toastMessage}"
+
+            />
+
+    </LinearLayout>
+</layout>
